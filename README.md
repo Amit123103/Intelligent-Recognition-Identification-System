@@ -6,6 +6,7 @@ AI-powered real-time face detection and recognition system built with React, Vit
 ![React 18](https://img.shields.io/badge/React-18-61dafb?style=flat-square)
 ![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06b6d4?style=flat-square)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-on_Render-ffcc00?style=for-the-badge&logo=render)](https://intelligent-recognition-identification.onrender.com)
 
 ---
 

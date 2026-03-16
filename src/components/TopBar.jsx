@@ -37,8 +37,10 @@ export default function TopBar({ stats, settings, sourceMode, audioMuted, detect
           <div className="flex items-center gap-2 mt-0.5">
             <span className="w-1.5 h-1.5 rounded-sm bg-[#00ffaa] animate-pulse" />
             <span className="stat-ticker text-[8px] opacity-60">NEURAL ENGINE ONLINE</span>
-            <span className="h-2 w-px bg-white/10" />
-            <span className="font-mono text-[8px] opacity-40 uppercase">{SOURCE_COLORS[sourceMode] ? 'UAV LINK STABLE' : 'SIGNAL SEARCHING'}</span>
+            <a href="https://intelligent-recognition-identification.onrender.com" target="_blank" rel="noopener noreferrer" 
+               className="font-mono text-[8px] text-[#00f2ff] opacity-40 hover:opacity-100 transition-opacity uppercase tracking-tighter">
+              📡 LIVE_NET_SIGNAL: ONRENDER.COM
+            </a>
           </div>
         </div>
       </div>
