@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
+    "build": "npm install --legacy-peer-deps && vite build",
     "preview": "npx vite preview"
   },
   "dependencies": {
