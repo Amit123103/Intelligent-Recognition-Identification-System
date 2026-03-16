@@ -1,0 +1,9 @@
+services:
+  - type: static
+    name: intelligent-recognition-system
+    env: static
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    staticPublishDir: dist
+    autoDeploy: true
+    regions:
+      - ohio
