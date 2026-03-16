@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #020205;
+  --color-bg-panel: rgba(5, 5, 10, 0.85);
+  --color-bg-card: rgba(15, 15, 25, 0.4);
+  --color-bg-elevated: rgba(25, 25, 45, 0.6);
+  
+  --color-accent-cyan: #00f2ff;
+  --color-accent-cyan-dim: #008899;
+  --color-accent-cyan-glow: rgba(0, 242, 255, 0.4);
+  
+  --color-accent-red: #ff3c3c;
+  --color-accent-red-dim: #992222;
+  --color-accent-red-glow: rgba(255, 60, 60, 0.4);
+  
+  --color-accent-green: #00ffaa;
+  --color-accent-green-dim: #008855;
+  --color-accent-green-glow: rgba(0, 255, 170, 0.4);
+  
+  --color-accent-amber: #ffcc00;
+  
+  --color-border-hud: rgba(0, 242, 255, 0.2);
+  --color-border-glow: rgba(0, 242, 255, 0.5);
+  
+  --font-heading: 'Rajdhani', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #020205;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.03) 0%, transparent 70%),
+    linear-gradient(rgba(0, 242, 255, 0.01) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 255, 0.01) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+  color: #e0e6ed;
+  font-family: 'Rajdhani', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ═══════════ ADVANCED ANIMATIONS ═══════════ */
+@keyframes scanner-y {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes scanner-x {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes glitch-flicker {
+  0% { opacity: 1; }
+  5% { opacity: 0.8; }
+  10% { opacity: 1; }
+  15% { opacity: 0.9; }
+  20% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes bit-flow {
+  from { background-position: 0 0; }
+  to { background-position: 0 400px; }
+}
+
+@keyframes orbit-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hue-rotate {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px var(--color-accent-cyan-glow)); }
+  50% { filter: drop-shadow(0 0 15px var(--color-accent-cyan-glow)); }
+}
+
+.animate-scanner-y { animation: scanner-y 3s linear infinite; }
+.animate-scanner-x { animation: scanner-x 3.5s linear infinite; }
+.animate-glitch { animation: glitch-flicker 2s infinite; }
+.animate-orbit { animation: orbit-rotate 10s linear infinite; }
+.animate-neon { animation: neon-pulse 2s infinite; }
+
+/* ═══════════ GLASSMORPHISM 2.0 ═══════════ */
+.glass-panel {
+  background: var(--color-bg-panel);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-border-hud);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.glass-card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 242, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(0, 242, 255, 0.08);
+  border-color: var(--color-border-glow);
+  box-shadow: 0 0 15px var(--color-accent-cyan-glow);
+  transform: scale(1.02);
+}
+
+/* ═══════════ HUD ORNAMENTS ═══════════ */
+.hud-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: var(--color-accent-cyan);
+  pointer-events: none;
+}
+.hud-corner-tl { top: 10px; left: 10px; border-top: 2px solid; border-left: 2px solid; }
+.hud-corner-tr { top: 10px; right: 10px; border-top: 2px solid; border-right: 2px solid; }
+.hud-corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid; border-left: 2px solid; }
+.hud-corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid; border-right: 2px solid; }
+
+.bit-background {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 0);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* ═══════════ SCROLLBAR EXTREME ═══════════ */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-cyan);
+  box-shadow: 0 0 5px var(--color-accent-cyan-glow);
+}
+
+/* ═══════════ STAT READOUTS ═══════════ */
+.stat-ticker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--color-accent-cyan);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 0 10px var(--color-accent-cyan-glow);
+}
+
+/* ═══════════ BUTTONS 2.0 ═══════════ */
+.hud-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+  background: rgba(0, 242, 255, 0.05);
+  border: 1px solid var(--color-border-hud);
+  color: var(--color-accent-cyan);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.hud-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 242, 255, 0.1), transparent);
+  transition: 0.5s;
+}
+
+.hud-btn:hover::before { left: 100%; }
+.hud-btn:hover {
+  background: rgba(0, 242, 255, 0.12);
+  border-color: var(--color-accent-cyan);
+  box-shadow: inset 0 0 10px var(--color-accent-cyan-glow);
+}
+
+.hud-btn-active {
+  background: var(--color-accent-cyan) !important;
+  color: #020205 !important;
+  box-shadow: 0 0 20px var(--color-accent-cyan-glow) !important;
+}
+
+.hud-btn-danger {
+  color: var(--color-accent-red);
+  border-color: rgba(255, 60, 60, 0.3);
+}
+.hud-btn-danger:hover {
+  background: rgba(255, 60, 60, 0.1);
+  border-color: var(--color-accent-red);
+  box-shadow: inset 0 0 10px var(--color-accent-red-glow);
+}
+
+/* ═══════════ TARGET RETICLES ═══════════ */
+.reticle {
+  position: absolute;
+  border: 1px solid var(--color-accent-cyan);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.reticle-h { width: 40px; height: 1px; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.reticle-v { width: 1px; height: 40px; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+/* ═══════════ BADGES ═══════════ */
+.hud-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
+  background: rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
